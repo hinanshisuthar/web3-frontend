@@ -4,6 +4,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  border: 5px solid #1693a3;
 }
 
 .main {
@@ -15,10 +16,11 @@
 
 .main button {
   padding: 0.5rem 1rem;
-  border: 2px solid black;
+  border: 2px solid #1693a3;
   outline: transparent;
-  box-shadow: 5px 5px 0px 1px rgba(0,0,0,1);
--webkit-box-shadow: 5px 5px 0px 1px rgba(0,0,0,1);
--moz-box-shadow: 5px 5px 0px 1px rgba(0,0,0,1);
+  box-shadow: 5px 5px 0px 1px #1693a3;
+-webkit-box-shadow: 5px 5px 0px 1px #1693a3;
+-moz-box-shadow: 5px 5px 0px 1px #1693a3;
   cursor: pointer;
+  font-weight: bold;
 }

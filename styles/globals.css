@@ -6,3 +6,8 @@
   box-sizing: border-box;
   font-family: 'Roboto Slab', serif;
 }
+
+:root {
+  --primary: #1693a3;
+  --secondary: #F5F1E3;
+}
