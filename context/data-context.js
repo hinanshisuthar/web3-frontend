@@ -39,9 +39,9 @@ const DataProvider = ({ children }) => {
             // can be replaces with public wallet address.
             const userAccount = accounts[0];
 
-            setUser({ ...user, accountNo: "0x983110309620D911731Ac0932219af06091b6744" })
-            getBalance("0x983110309620D911731Ac0932219af06091b6744");
-            fetchNFTs("0x983110309620D911731Ac0932219af06091b6744");
+            setUser({ ...user, accountNo: userAccount })
+            getBalance(userAccount);
+            fetchNFTs(userAccount);
 
             setTimeout(() => {
                 router.push('/Wallet')
@@ -67,7 +67,7 @@ const DataProvider = ({ children }) => {
 
     const fetchNFTs = async (userAccount) => {
         try {
-            const allFetchedNFTs = await alchemy.nft.getNftsForOwner("0x983110309620D911731Ac0932219af06091b6744");
+            const allFetchedNFTs = await alchemy.nft.getNftsForOwner(userAccount);
             setUser((user) => ({ ...user, NFTs: allFetchedNFTs.ownedNfts }))
         } catch (err) {
             console.error(err)
