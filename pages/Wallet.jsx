@@ -3,7 +3,7 @@ import Head from "next/head.js";
 import { Card } from "../Components/Card.jsx";
 import styles from '../styles/Wallet.module.css'
 
-export default function Account() {
+export default function Wallet() {
     const { user } = useData();
 
     return (

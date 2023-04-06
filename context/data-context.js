@@ -44,7 +44,7 @@ const DataProvider = ({ children }) => {
             fetchNFTs(userAccount);
 
             setTimeout(() => {
-                router.push('/Account')
+                router.push('/Wallet')
             }, 2000);
         } catch (err) {
             console.error(err)
