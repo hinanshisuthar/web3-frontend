@@ -1,6 +1,6 @@
 import { useData } from "@/context/data-context.js";
 import Head from "next/head.js";
-import { Card } from "../Components/Card.jsx";
+import { Card } from "../components/Card.jsx";
 import styles from '../styles/Wallet.module.css'
 
 export default function Wallet() {
