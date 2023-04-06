@@ -1,6 +1,5 @@
 import Head from 'next/head'
-import styles from '@/styles/Home.module.css'
-import { Landing } from './Landing'
+import Landing from './Landing'
 
 export default function Home() {
   return (
