@@ -13,7 +13,7 @@ const DataProvider = ({ children }) => {
 
     const router = useRouter();
     const [user, setUser] = useState({
-        accountNo: null,
+        accountNo: '',
         balance: '',
         NFTs: []
     });
@@ -21,12 +21,12 @@ const DataProvider = ({ children }) => {
         "Connect to view your metamask wallet."
     );
 
-    const getBalance = async (address) => {
+    const getBalance = async (walletAddress) => {
         const balance = await window.ethereum.request({
             method: "eth_getBalance",
-            params: [address, "latest"],
+            params: [walletAddress, "latest"],
         });
-        setUser({ ...user, balance })
+        setUser((user) => { return { ...user, balance: parseInt(balance, 16) } })
     };
 
     const logIn = async () => {
@@ -37,11 +37,11 @@ const DataProvider = ({ children }) => {
             setMsg("Logging you in...");
 
             // can be replaces with public wallet address.
-            const userAccount = accounts[0]; 
+            const userAccount = accounts[0];
 
-            setUser((user) => ({ ...user, accountNo: userAccount }))
-            getBalance(userAccount);
-            fetchNFTs(userAccount);
+            setUser({ ...user, accountNo: "0x983110309620D911731Ac0932219af06091b6744" })
+            getBalance("0x983110309620D911731Ac0932219af06091b6744");
+            fetchNFTs("0x983110309620D911731Ac0932219af06091b6744");
 
             setTimeout(() => {
                 router.push('/Wallet')
@@ -67,7 +67,7 @@ const DataProvider = ({ children }) => {
 
     const fetchNFTs = async (userAccount) => {
         try {
-            const allFetchedNFTs = await alchemy.nft.getNftsForOwner(userAccount);
+            const allFetchedNFTs = await alchemy.nft.getNftsForOwner("0x983110309620D911731Ac0932219af06091b6744");
             setUser((user) => ({ ...user, NFTs: allFetchedNFTs.ownedNfts }))
         } catch (err) {
             console.error(err)
